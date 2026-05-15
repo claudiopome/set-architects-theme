@@ -1,0 +1,75 @@
+%formstyle {
+	color: $color-input-text;
+	background-color: $color-white;
+	border: 1px solid $color-primary;
+	padding: $spacer / 3;
+	border-radius: 0px;
+	font-size: $font-main-body-font-size;
+	box-shadow: none;
+	outline: 0;
+	width: 100%;
+}
+
+%formstylefocus {
+	box-shadow: none;
+	outline: 0;
+	border-color: $color-primary;
+}
+
+/* INPUT */
+
+input.form-control {
+	@extend %formstyle;
+	height: $spacer * 2;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* TEXTAREA */
+
+textarea.form-control {
+	@extend %formstyle;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* SELECT */
+
+select.form-control {
+	@extend %formstyle;
+	height: $spacer * 2;
+	appearance: none;
+	padding: 0px $spacer / 3;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+}
+
+/* CHECKBOX */
+
+.form-check {
+	padding-left: $spacer;
+	margin-bottom: $spacer;
+}
+
+input.form-check-input {
+	margin-top: 0px;
+	margin-left: -$spacer;
+}
+
+label.form-check-label {
+	margin-left: $spacer / 3;
+}

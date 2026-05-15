@@ -1,0 +1,41 @@
+/* SPACE UNIT */
+
+$spacer:                            15px;
+
+/* GRID */
+
+$grid-columns:                      12;
+$grid-gutter-width:                 30px;
+$grid-row-columns:                  6;
+
+/* VIEWPORT */
+
+$viewport-height:                   100vh;  
+$viewport-width:                    100vw;     
+
+/* CONTENT */
+
+$content-max-width:                 1200px;
+
+/* BREAKPOINTS */
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 1000px,
+    lg: 1001px,
+    xl: 1200px
+);
+
+/* RESPONSIVE ASPECT RATIO */
+
+$embed-responsive-aspect-ratios: () !default;
+$embed-responsive-aspect-ratios: join(
+  (
+    (21 9),
+    (16 9),
+    (4 3),
+    (1 1),
+  ),
+  $embed-responsive-aspect-ratios
+);

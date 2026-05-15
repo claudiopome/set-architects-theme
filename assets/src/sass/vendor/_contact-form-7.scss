@@ -1,0 +1,109 @@
+/* CF7 GENERAL */
+
+.wpcf7-form-control {
+    width: 100%;
+}
+
+label {
+    width: 100%;
+}
+
+label p {
+    margin-bottom: $spacer / 3;
+}
+
+span.wpcf7-list-item {
+    margin: 0px;
+    margin-right: $spacer;
+}
+
+.wpcf7-list-item-label {
+    margin-left: $spacer / 3;
+}
+
+/* CF7 TEXT */
+
+.wpcf7-text {
+    @extend %formstyle;
+	height: $spacer * 2;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* CF7 EMAIL */
+
+.wpcf7-email {
+    @extend %formstyle;
+	height: $spacer * 2;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* CF7 DATE */
+
+.wpcf7-date {
+    @extend %formstyle;
+	height: $spacer * 2;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* CF7 TEXTAREA */
+
+.wpcf7-textarea {
+    @extend %formstyle;
+
+	&:focus {
+		@extend %formstylefocus;
+	}
+
+	@include placeholder {
+		color: $color-neutral-dark;
+	}
+}
+
+/* CF7 SELECT */
+
+.wpcf7-select {
+	@extend %formstyle;
+	height: $spacer * 2;
+	appearance: none;
+	padding: 0px $spacer / 3;
+
+	&:focus { 
+		@extend %formstylefocus;
+	}
+}
+
+/* CF7 FILE */
+
+.wpcf7-file {
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+/* CF7 SUBMIT */
+
+.wpcf7-submit {
+    @extend button;
+    width: auto;
+}

@@ -1,0 +1,10 @@
+.site-footer {
+    padding: $spacer;
+    background-color: $color-primary;
+    color: $color-white;
+    min-height: $spacer * 3; 
+
+    p {
+        margin: 0px; 
+    }
+} 

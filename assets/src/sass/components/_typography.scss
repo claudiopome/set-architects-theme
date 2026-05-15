@@ -1,0 +1,118 @@
+/* WEBFONTS */
+
+@font-face {
+	font-family: $font-main-webfont;
+	src: url('../fonts/#{$font-main-webfont-filename}.#{$font-format-extension}') format('#{$font-format-type}');
+}
+  
+@font-face {
+	font-family: $font-main-italic-webfont;
+	src: url('../fonts/#{$font-main-italic-webfont-filename}.#{$font-format-extension}') format('#{$font-format-type}');
+}
+
+/* FONT FEATURE SETTINGS */
+
+
+/* LINKS */
+
+a {
+	color: $color-link-text;
+	text-decoration: none;
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link-text-hover;
+		text-decoration: none;
+	}
+	&:focus {
+		outline: 0;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/* TYPOGRAPHY */
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color-black;
+	font-family: $font-main;
+	line-height: $font-main-body-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	margin: $spacer 0px;
+}
+ 
+p {
+	margin-bottom: $spacer;
+}
+
+h1 {
+	font-size: $font-main-h1-font-size;
+}
+
+h2 {
+	font-size: $font-main-h2-font-size;
+}
+
+h3 {
+	font-size: $font-main-h3-font-size;
+}
+
+h4 {
+	font-size: $font-main-h4-font-size;
+}
+
+h5 {
+	font-size: $font-main-h5-font-size;
+}
+
+h6 {
+	font-size: $font-main-h6-font-size;
+}
+ 
+dfn, cite, em, i {
+	font-style: italic;  
+}
+  
+blockquote {
+	margin: 0 $spacer;
+} 
+
+address { 
+	margin: 0 0 $spacer;     
+}
+
+mark, ins {
+	background: $color-white;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+} 
+
+hr {
+	background-color: $color-black;
+	border: 0;
+	height: 1px;
+	margin-bottom: $spacer;
+}
+
+small {
+	color: $color-neutral-dark;
+	font-size: 80%;
+}
+
+small.form-text {
+	color: $color-neutral-dark;
+	margin: 0px;
+}

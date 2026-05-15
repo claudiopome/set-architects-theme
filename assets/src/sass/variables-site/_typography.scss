@@ -1,0 +1,94 @@
+/* WEBFONTS */
+
+$font-main-webfont: 'font';
+$font-main-webfont-filename: no-custom-font;
+$font-main-italic-webfont: 'font-italic';
+$font-main-italic-webfont-filename: no-custom-font;
+
+$font-format-extension: otf;
+$font-format-type: opentype;
+
+/* FONT FEATURE SETTINGS */
+
+%font-feature-settings {
+    @include font-feature-settings(ss03)
+}
+
+/* FONT FAMILY */
+/* Copy font name from components/typography */
+
+$font-main:                     $font-main-webfont, Helvetica, Arial, sans-serif;
+$font-main-italic:              $font-main-italic-webfont, Helvetica, Arial, sans-serif;
+$font-secondary:                "Times New Roman", Times, serif;
+
+/* BODY FONT SIZE */
+
+$micro: 0.75vw;
+$extrasmall: 1vw;
+$small: 16px;
+$medium: 20px;
+$large: 3vw;
+$extralarge: 14vw;
+
+$micro-xl: 0.75vw;
+$extrasmall-xl: 1vw;
+$small-xl: 16px;
+$medium-xl: 20px;
+$large-xl: 3vw;
+$extralarge-xl: 14vw;
+
+$micro-sm: 3vw;
+$extrasmall-sm: 3.5vw;
+$small-sm: 4vw;
+$medium-sm: 4.6vw;
+$large-sm: 9vw;
+$extralarge-sm: 19vw;
+
+/* BODY LINE HEIGHT */
+
+$micro-lineh: 1.15;
+$extrasmall-lineh: 1.15;
+$small-lineh: 1.15;
+$medium-lineh: 1.15;
+$large-lineh: 1.15;
+$extralarge-lineh: 1.15;
+
+$micro-lineh-xl: 1.15;
+$extrasmall-lineh-xl: 1.15;
+$small-lineh-xl: 1.15;
+$medium-lineh-xl: 1.15;
+$large-lineh-xl: 1.15;
+$extralarge-lineh-xl: 1.15;
+
+$micro-lineh-sm: 1.15;
+$extrasmall-lineh-sm: 1.15;
+$small-lineh-sm: 1.15;
+$medium-lineh-sm: 1.15;
+$large-lineh-sm: 1.15;
+$extralarge-lineh-sm: 1.15;
+
+$font-main-body-font-size: $small;
+$font-main-body-line-height: $small-lineh;
+
+/* HEADINGS FONT SIZES */
+
+$font-main-h1-font-size:        $font-main-body-font-size * 2;
+$font-main-h2-font-size:        $font-main-body-font-size * 1.75;
+$font-main-h3-font-size:        $font-main-body-font-size * 1.5;
+$font-main-h4-font-size:        $font-main-body-font-size * 1.25;
+$font-main-h5-font-size:        $font-main-body-font-size * 1.10;
+$font-main-h6-font-size:        $font-main-body-font-size;
+
+/* HEADINGS LINE HEIGHTS */
+
+$font-main-h1-line-height:      $font-main-body-line-height;
+$font-main-h2-line-height:      $font-main-body-line-height;
+$font-main-h3-line-height:      $font-main-body-line-height;
+$font-main-h4-line-height:      $font-main-body-line-height;
+$font-main-h5-line-height:      $font-main-body-line-height;
+$font-main-h6-line-height:      $font-main-body-line-height;
+
+/* FONT WEIGHTS */
+
+$font-regular:                  400;
+$font-bold:                     700;

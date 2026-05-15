@@ -1,0 +1,105 @@
+.lightbox-image {
+    margin-bottom: $spacer;
+}
+
+.fancybox-infobar { 
+    display: none !important; 
+}
+
+.fancybox-button--zoom { 
+    display: none !important; 
+}
+
+.fancybox-button--play { 
+    display: none !important; 
+}
+
+.fancybox-button--thumbs { 
+    display: none !important; 
+}
+
+.fancybox-button { 
+    background: transparent !important; 
+}
+
+.fancybox-bg { 
+    background-color: $color-white; 
+}
+
+.fancybox-caption { 
+    padding: $spacer !important; 
+    background: none !important; 
+}
+.fancybox-is-open .fancybox-bg { 
+    opacity: 1; 
+}
+
+.fancybox-caption__body { 
+    font-size: $font-main-body-font-size; 
+    color: $color-black;
+}
+
+.fancybox-button--close { 
+    right: $spacer; 
+    top: $spacer; 
+    position: absolute; 
+}
+
+.fancybox-button {
+    z-index: 1;
+}
+
+.fancybox-navigation .fancybox-button--arrow_right { 
+    right: $spacer;  
+    padding: $spacer*2 0px $spacer*2 $spacer*2;
+}
+
+.fancybox-navigation .fancybox-button--arrow_left { 
+    left: $spacer;  
+    padding: $spacer*2 $spacer*2 $spacer*2 0px;
+}
+
+.fancybox-button svg {
+    display: inline-block;
+    width: $spacer*2; 
+}
+
+.fancybox-close {
+    position: absolute;
+    top: $spacer;
+    right: $spacer;
+    padding: 0px;
+    background-color: transparent;
+    border: 0px;
+}
+
+.fancybox-close svg {
+    display: inline-block;
+    width: $spacer*2;
+}
+
+.fancybox-slide--image { 
+    padding: $spacer !important; 
+}
+
+.fancybox-navigation .fancybox-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fancybox-navigation .fancybox-button:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fancybox-button {
+    color: $color-black;
+}
+
+.fancybox-button:hover {
+    color: $color-black;
+}
+
+.fancybox-navigation .fancybox-button div { 
+    padding: $spacer/3; 
+}

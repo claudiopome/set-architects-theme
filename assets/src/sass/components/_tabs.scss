@@ -1,0 +1,20 @@
+.nav-pills .nav-link {
+	border-radius: 0px;
+	padding-top: $spacer / 3;
+	padding-right: $spacer / 2;
+	padding-bottom: $spacer / 3;
+	padding-left: $spacer / 2;
+	padding: 0px;
+	margin-right: $spacer;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	background-color: transparent;
+	color: $color-black;
+}
+
+.section-tabs .nav {
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: $spacer;
+}

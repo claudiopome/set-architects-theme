@@ -1,0 +1,24 @@
+table {
+	margin: 0 0 $spacer;
+	width: 100%;
+}
+
+.table td, 
+.table th {
+	font-size: $font-main-body-font-size;
+	font-weight: $font-regular;
+	color: $color-black;
+}
+
+.table thead th {
+	border-top: 1px solid $color-black;
+	border-bottom: 1px solid $color-black;
+}
+
+.table tbody th {
+	border-bottom: 1px solid $color-black;
+}
+
+.table td {
+	border-bottom: 1px solid $color-black;
+}

@@ -1,0 +1,35 @@
+.modal-dialog {
+	width: $viewport-width / 2;
+	max-width: 1200px;
+}
+
+.modal-content { 
+	border: 0px; 
+	border-radius: 0px;
+}
+
+.modal-header {
+	border-bottom: 0px;
+	padding: $spacer;
+	border-radius: 0px;
+
+	.close {
+		padding: 0px;
+		margin: 0px;
+	}
+}
+
+.modal-body {
+	padding: 0px $spacer $spacer;
+	border-radius: 0px;
+}
+
+.modal-open .modal {
+	display: flex !important;
+	align-items: center;
+}
+
+.modal.fade .modal-dialog {  
+	transition: none !important; 
+	transform: none !important; 
+}

@@ -1,0 +1,27 @@
+.filters-buttons {
+    margin-bottom: $spacer;
+}
+
+.filters-buttons button {
+    margin-right: $spacer;
+}
+
+.filters-container {
+    width: 100%;
+}
+
+.filter-item p {
+    color: $color-black;
+    padding-top: $spacer/3;
+    margin-bottom: 0px;
+}
+
+.filter-item img {
+    width: 100%;
+}
+
+.filter-item {
+    padding: $spacer/3;
+    background-color: $color-neutral-light;
+    margin-bottom: $spacer*2;
+}

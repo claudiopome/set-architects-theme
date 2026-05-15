@@ -1,0 +1,55 @@
+button {
+	border: 1px $color-button-border solid;
+	background: $color-button-background;
+	color: $color-button-text;
+	padding-top: $spacer/3; 
+	padding-right: $spacer/2; 
+	padding-bottom: $spacer/3; 
+	padding-left: $spacer/2;
+
+	&:hover {
+		border-color: $color-button-border;
+	}
+
+	&:active, 
+	&:focus {
+		border-color: $color-button-border;
+		outline: 0;
+	}
+}
+
+button.close {
+	font-size: $font-main-body-font-size;
+	text-shadow: 0px;
+	color: $color-primary;
+	opacity: 1;
+	font-weight: $font-regular;
+}
+
+button.close:not(:disabled):not(.disabled):focus, 
+button.close:not(:disabled):not(.disabled):hover {
+	opacity: 1;
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px $color-button-border solid;
+	background: $color-button-background;
+	color: $color-button-text;
+	line-height: 1;
+	padding-top: $spacer/3; 
+	padding-right: $spacer/2; 
+	padding-bottom: $spacer/3; 
+	padding-left: $spacer/2; 
+
+	&:hover {
+		border-color: $color-button-border;
+	}
+
+	&:active, 
+	&:focus {
+		border-color: $color-button-border;
+		outline: 0;
+	}
+}

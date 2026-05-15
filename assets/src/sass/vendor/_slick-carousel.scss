@@ -1,0 +1,82 @@
+.slider-container {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+.slider {
+    max-height: $viewport-height / 2;
+    img {
+        max-height: $viewport-height / 2;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+.slick-dots {
+    padding: 0px;
+    margin: 0px;
+    margin-top: $spacer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    li {
+        list-style: none;
+        button {
+            padding: $spacer / 2;
+            background-color: transparent;
+            color: $color-primary;
+            border: 0px;
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+    li.slick-active {
+        button {
+            color: $color-black;
+        }
+    }
+}
+
+%slider-arrows {
+    height: $viewport-height / 2;
+    width: $spacer * 4 / 3;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    img {
+        max-height: $spacer * 4 / 3;
+    }
+}
+
+.prev-button {
+    @extend %slider-arrows;
+    left: 0px;
+}
+
+.next-button {
+    @extend %slider-arrows;
+    right: 0px;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, sm)) {
+
+    .slick-track {
+        display: flex;
+        align-items: center;
+    }
+
+    .prev-button {
+        left: $spacer;
+    }
+    
+    .next-button {
+        right: $spacer;
+    }
+
+}

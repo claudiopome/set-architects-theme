@@ -1,0 +1,41 @@
+.site-header {
+    background-color: $color-white;
+    min-height: 50px; 
+    padding: $spacer;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+    border-bottom: 1px solid $color-black;
+    display: flex; 
+    align-items: center;
+} 
+
+.site-branding {
+    font-size: $font-main-h1-font-size; 
+    float: left;
+    margin-right: $spacer;
+
+    h1 {
+        font-weight: $font-regular;
+    }
+}
+ 
+.site-title { 
+    margin: 0px !important;
+    font-size: $font-main-body-font-size;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, sm)) {
+
+    .site-header {
+        display: block;
+        padding-bottom: 0px;
+    }
+
+    .site-branding {
+        display: inline-block;
+        float: none;
+    }
+
+}

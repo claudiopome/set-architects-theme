@@ -1,0 +1,46 @@
+/* ICONS */
+
+.icon {
+	width: $spacer*2;
+	height: $spacer*2;
+	object-fit: contain;
+}
+
+/* IMAGES */
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+/* EMBEDS */
+
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+.embed-responsive {
+	margin-bottom: $spacer;
+}
+
+.embed-responsive-original {
+	iframe {
+		position: relative; 
+		width: auto; 
+		height: auto;
+	}
+}
+
+/* VIDEO */
+
+video {
+	width: 100%;
+}
+
+/* AUDIO */
+
+audio {
+	width: 100%;
+}
