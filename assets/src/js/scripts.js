@@ -6,6 +6,20 @@ function getPageStorageKey(key) {
   return `${getCurrentPageStoragePrefix()}:${key}`;
 }
 
+function getSavedSlideIndex(key, slideCount) {
+  const value = parseInt(localStorage.getItem(getPageStorageKey(key)), 10);
+
+  if (Number.isNaN(value)) {
+    return 0;
+  }
+
+  if (value < 0 || value >= slideCount) {
+    return 0;
+  }
+
+  return value;
+}
+
 /* SECTIONS */
 
 jQuery(document).ready(function() {
@@ -100,17 +114,12 @@ jQuery(document).ready(function() {
     var sectionClass = jQuery(this).attr('class').split(' ')[1];
     var section = sectionClass.replace('section-', '');
 
-    localStorage.setItem(
-        getPageStorageKey('activeSection'),
-        section
-    );
+    localStorage.setItem('activeSection', section);
 
     setActiveSection(section, jQuery(this));
   });
 
-  var savedSection = localStorage.getItem(
-      getPageStorageKey('activeSection')
-  );
+  var savedSection = localStorage.getItem('activeSection');
 
   if (savedSection) {
     setActiveSection(
@@ -213,7 +222,7 @@ jQuery(document).ready(function () {
 
   // Enable arrow key navigation
   jQuery(document).on('keydown', function (e) {
-    const activeSection = localStorage.getItem(getPageStorageKey('activeSection')) || 'images';
+    const activeSection = localStorage.getItem('activeSection')|| 'images';
     const $slider =
       activeSection === 'images'
         ? jQuery('.slider-images')
