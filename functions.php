@@ -7,6 +7,11 @@
  * @package Nemesis
  */
 
+if ( !defined( 'NEMESIS_VERSION' ) ) {
+    // Replace the version number of the theme on each release.
+    define( 'NEMESIS_VERSION', '1.0.7' );
+}
+
 if ( ! function_exists( 'nemesis_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -131,7 +136,7 @@ function nemesis_scripts() {
 	wp_enqueue_style( 'nemesis-fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css' );
 	
 	/* Custom CSS */
-    wp_enqueue_style( 'nemesis-style', get_template_directory_uri() . '/assets/build/css/style.css', array(), '1.0.6');
+    wp_enqueue_style( 'nemesis-style', get_template_directory_uri() . '/assets/build/css/style.css', array(), NEMESIS_VERSION );
 
 	/* jQuery JS */
 	wp_enqueue_script( 'nemesis-jquery-js', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js', array(), false, true );
@@ -155,7 +160,7 @@ function nemesis_scripts() {
 	wp_enqueue_script( 'nemesis-marquee-js', get_template_directory_uri() . '/assets/build/js/marquee3k.min.js', array(), false, true );
 
 	/* Custom JS */
-	wp_enqueue_script( 'nemesis-scripts', get_template_directory_uri() . '/assets/build/js/app.js', array(), false, true );
+	wp_enqueue_script( 'nemesis-scripts', get_template_directory_uri() . '/assets/build/js/app.js', array(), NEMESIS_VERSION, true );
 
 	/* Navigation */
 	wp_enqueue_script( 'nemesis-navigation', get_template_directory_uri() . '/assets/build/js/navigation.js', array(), '20151215', true );
