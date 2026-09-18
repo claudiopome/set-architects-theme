@@ -1,9 +1,14 @@
+function getCurrentPageStoragePrefix() {
+  return window.location.pathname.replace(/\/$/, "");
+}
+
+function getPageStorageKey(key) {
+  return `${getCurrentPageStoragePrefix()}:${key}`;
+}
+
 /* SECTIONS */
 
 jQuery(document).ready(function () {
-  let imagesSlideIndex = 0;
-  let drawingsSlidesIndex = 0;
-
   function setActiveSection(section, clickedElement) {
     const currentActiveSection = jQuery(
       ".content-sections > div.active",
@@ -19,7 +24,10 @@ jQuery(document).ready(function () {
       if ($sliderImages.hasClass("slick-initialized")) {
         const slick = $sliderImages.slick("getSlick");
 
-        imagesSlideIndex = slick.currentSlide;
+        localStorage.setItem(
+          getPageStorageKey("imagesSlideIndex"),
+          slick.currentSlide,
+        );
       }
     } else if (currentActiveSection === "drawings") {
       const $sliderDrawings = jQuery(".slider-drawings");
@@ -27,7 +35,10 @@ jQuery(document).ready(function () {
       if ($sliderDrawings.hasClass("slick-initialized")) {
         const slick = $sliderDrawings.slick("getSlick");
 
-        drawingsSlideIndex = slick.currentSlide;
+        localStorage.setItem(
+          getPageStorageKey("drawingsSlideIndex"),
+          slick.currentSlide,
+        );
       }
     }
 
@@ -46,16 +57,16 @@ jQuery(document).ready(function () {
           const $imagesCounter = jQuery(".images-cursor .cursor-counter");
 
           if ($sliderImages.hasClass("slick-initialized")) {
-            const slick = $sliderImages.slick("getSlick");
+            const savedImagesSlide =
+              parseInt(
+                localStorage.getItem(getPageStorageKey("imagesSlideIndex")),
+                10,
+              ) || 0;
 
-            const validImagesSlideIndex =
-              imagesSlideIndex >= 0 && imagesSlideIndex < slick.slideCount
-                ? imagesSlideIndex
-                : 0;
-
-            $sliderImages.slick("slickGoTo", validImagesSlideIndex, true);
+            $sliderImages.slick("slickGoTo", savedImagesSlide, true);
             $sliderImages.slick("setPosition");
 
+            const slick = $sliderImages.slick("getSlick");
             const current = slick.slideCount > 1 ? slick.currentSlide + 1 : 1;
             const total = slick.slideCount;
 
@@ -68,16 +79,16 @@ jQuery(document).ready(function () {
           const $drawingsCounter = jQuery(".drawings-cursor .cursor-counter");
 
           if ($sliderDrawings.hasClass("slick-initialized")) {
-            const slick = $sliderDrawings.slick("getSlick");
+            const savedDrawingsSlide =
+              parseInt(
+                localStorage.getItem(getPageStorageKey("drawingsSlideIndex")),
+                10,
+              ) || 0;
 
-            const validDrawingsSlideIndex =
-              drawingsSlideIndex >= 0 && drawingsSlideIndex < slick.slideCount
-                ? drawingsSlideIndex
-                : 0;
-
-            $sliderDrawings.slick("slickGoTo", validDrawingsSlideIndex, true);
+            $sliderDrawings.slick("slickGoTo", savedDrawingsSlide, true);
             $sliderDrawings.slick("setPosition");
 
+            const slick = $sliderDrawings.slick("getSlick");
             const current = slick.slideCount > 1 ? slick.currentSlide + 1 : 1;
             const total = slick.slideCount;
 
@@ -94,12 +105,12 @@ jQuery(document).ready(function () {
     var sectionClass = jQuery(this).attr("class").split(" ")[1];
     var section = sectionClass.replace("section-", "");
 
-    localStorage.setItem("activeSection", section);
+    localStorage.setItem(getPageStorageKey("activeSection"), section);
 
     setActiveSection(section, jQuery(this));
   });
 
-  var savedSection = localStorage.getItem("activeSection");
+  var savedSection = localStorage.getItem(getPageStorageKey("activeSection"));
 
   if (savedSection) {
     setActiveSection(
@@ -135,6 +146,9 @@ jQuery(document).ready(function () {
       nextArrow: nextArrow,
       asNavFor: asNavFor,
       arrows: slideCount > 1, // disable arrows if only 1 slide
+      swipe: false,
+      draggable: false,
+      touchMove: false,
     };
   }
 
@@ -207,7 +221,8 @@ jQuery(document).ready(function () {
 
   // Enable arrow key navigation
   jQuery(document).on("keydown", function (e) {
-    const activeSection = localStorage.getItem("activeSection") || "images";
+    const activeSection =
+      localStorage.getItem(getPageStorageKey("activeSection")) || "images";
     const $slider =
       activeSection === "images"
         ? jQuery(".slider-images")

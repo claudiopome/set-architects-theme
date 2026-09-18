@@ -546,3 +546,20 @@ function project_status() {
     register_taxonomy('status', array('projects'), $args);
 }
 add_action('init', 'project_status');
+
+/**
+ * Use featured image as Open Graph image for Yoast SEO on single posts.
+ * 
+ * @since 
+ */
+add_filter('wpseo_opengraph_image', function ($image) {
+    if (is_singular('post')) {
+        $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
+        if ($featured_image) {
+            return $featured_image;
+        }
+    }
+
+    return $image;
+});
