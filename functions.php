@@ -552,14 +552,40 @@ add_action('init', 'project_status');
  * 
  * @since 
  */
-add_filter('wpseo_opengraph_image', function ($image) {
-    if (is_singular('post')) {
-        $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+add_action(
+	'wp_head',
+	function () {
+		if ( ! is_singular( 'projects' ) ) {
+			return;
+		}
 
-        if ($featured_image) {
-            return $featured_image;
-        }
-    }
+		if ( ! function_exists( 'get_field' ) ) {
+			return;
+		}
 
-    return $image;
-});
+		$acf_image = get_field( 'project-thumbnail-image' );
+
+		if ( ! $acf_image ) {
+			return;
+		}
+
+		$image_url = '';
+
+		if ( is_array( $acf_image ) && ! empty( $acf_image['url'] ) ) {
+			$image_url = $acf_image['url'];
+		} elseif ( is_numeric( $acf_image ) ) {
+			$image_url = wp_get_attachment_image_url( $acf_image, 'full' );
+		} elseif ( is_string( $acf_image ) ) {
+			$image_url = $acf_image;
+		}
+
+		if ( ! $image_url ) {
+			return;
+		}
+
+		printf(
+			'<meta property="og:image" content="%s" />' . "\n",
+			esc_url( $image_url )
+		);
+	}
+);
