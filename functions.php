@@ -9,7 +9,7 @@
 
 if ( !defined( 'NEMESIS_VERSION' ) ) {
     // Replace the version number of the theme on each release.
-    define( 'NEMESIS_VERSION', '1.0.8' );
+    define( 'NEMESIS_VERSION', '1.0.9' );
 }
 
 if ( ! function_exists( 'nemesis_setup' ) ) :
@@ -550,7 +550,7 @@ add_action('init', 'project_status');
 /**
  * Use featured image as Open Graph image for Yoast SEO on single posts.
  * 
- * @since 
+ * @since 1.0.9
  */
 add_action(
 	'wp_head',

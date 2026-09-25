@@ -345,9 +345,9 @@ jQuery(".filters-list .close-button").click(function () {
       },
     },
     Images: {
-      zoom: false,
+      zoom: true,
       Panzoom: {
-        zoom: false,
+        zoom: true,
       },
     },
   });
