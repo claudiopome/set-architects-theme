@@ -9,7 +9,7 @@
 
 if ( !defined( 'NEMESIS_VERSION' ) ) {
     // Replace the version number of the theme on each release.
-    define( 'NEMESIS_VERSION', '1.0.9' );
+    define( 'NEMESIS_VERSION', '1.1.0' );
 }
 
 if ( ! function_exists( 'nemesis_setup' ) ) :

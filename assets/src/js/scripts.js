@@ -239,9 +239,28 @@ jQuery(document).ready(function () {
 
   // === Mobile-specific tap interaction ===
   function bindTapNavigation($slider) {
+    let isPinching = false;
+
+    $slider.on("touchstart", function (e) {
+      if (e.originalEvent.touches.length === 2) {
+        isPinching = true;
+      }
+    });
+
+    $slider.on("touchend", function (e) {
+      if (e.originalEvent.touches.length === 0) {
+        setTimeout(function () {
+          isPinching = false;
+        }, 100);
+      }
+    });
+
     $slider.on("click", function (e) {
       const isMobile = window.matchMedia("(max-width: 768px)").matches;
-      if (!isMobile) return;
+
+      if (!isMobile || isPinching) {
+        return;
+      }
 
       const offset = $slider.offset();
       const width = $slider.outerWidth();
@@ -258,6 +277,99 @@ jQuery(document).ready(function () {
   bindTapNavigation(jQuery(".slider-images"));
   bindTapNavigation(jQuery(".slider-drawings"));
 });
+
+/**
+ * Pinch-to-zoom for project sliders only.
+ */
+function initProjectSliderZoom() {
+  if (!window.matchMedia("(max-width: 768px)").matches) {
+    return;
+  }
+
+  const $images = jQuery(".slider-images img, .slider-drawings img");
+
+  $images.each(function () {
+    const image = this;
+
+    let scale = 1;
+    let startScale = 1;
+    let startDistance = 0;
+
+    let translateX = 0;
+    let translateY = 0;
+    let startX = 0;
+    let startY = 0;
+
+    function getDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function updateTransform() {
+      image.style.transform =
+        "translate(" +
+        translateX +
+        "px, " +
+        translateY +
+        "px) scale(" +
+        scale +
+        ")";
+    }
+
+    image.addEventListener(
+      "touchstart",
+      function (event) {
+        if (event.touches.length !== 2) {
+          return;
+        }
+
+        startDistance = getDistance(event.touches);
+        startScale = scale;
+
+        event.preventDefault();
+      },
+      { passive: false },
+    );
+
+    image.addEventListener(
+      "touchmove",
+      function (event) {
+        if (event.touches.length !== 2) {
+          return;
+        }
+
+        const distance = getDistance(event.touches);
+
+        if (!startDistance) {
+          return;
+        }
+
+        scale = startScale * (distance / startDistance);
+
+        scale = Math.max(1, Math.min(scale, 4));
+
+        updateTransform();
+
+        event.preventDefault();
+      },
+      { passive: false },
+    );
+
+    image.addEventListener("touchend", function (event) {
+      if (event.touches.length === 0 && scale <= 1) {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+
+        updateTransform();
+      }
+    });
+  });
+}
+
+initProjectSliderZoom();
 
 /* FILTERS */
 
